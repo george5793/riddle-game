@@ -37,17 +37,32 @@ def get_riddle():
     with open("data/riddle.txt", "r") as file:
         lines = file.read().splitlines()
         
-        for i, text in enumerate(lines):
-                if i%2 == 0:
-                    riddles.append(text)
-        
+    for i, text in enumerate(lines):
+            if i%2 == 0:
+                riddles.append(text)
+    
     return riddles
+    
+def get_solutions():
+    
+    solutions = []
+    
+    with open("data/riddle.txt", "r") as file:
+        lines = file.read().splitlines()
+        
+    for i, text in enumerate(lines):
+        if i%2 != 0:
+            solutions.append(text)
+        
+    return solutions
+    
 
 @app.route('/')
 def index():
     """ Main Riddle Game Landing Page """
     
     riddles = get_riddle()
-    return render_template('index.html', riddles = riddles)
+    solutions = get_solutions()
+    return render_template('index.html', riddles = riddles, solutions = solutions)
     
 app.run(host = os.getenv('IP'), port = int(os.getenv('PORT')), debug = True)
