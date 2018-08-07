@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Home Page</title>
-    </head>
-    <body>
-        <h1>Welcome to the Riddle Game</h1>
-        {{ riddles }}
-        {{ solutions }}
-    </body>
+
+<head>
+    <title>The Riddle Game</title>
+</head>
+
+<body>
+    <div>
+        <div>
+            <h1>Welcome to the Riddle Game</h1>
+        </div>
+        <div>
+            <h2>To start the game, please enter your name:</h2>
+        </div>
+        <div>
+            <form method="POST">
+                <input type="text" placeholder="Type here..." name="player_name" id="player_name" autofocus/>
+                <button class="btn btn-danger">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+
 </html>
