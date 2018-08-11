@@ -1,0 +1,68 @@
+[
+  {
+    "riddle_number": 0,
+    "category": "Easy",
+    "riddle": "What is the worst vegetable to have on a ship?",
+    "solution": "leek"
+  },
+  {
+    "riddle_number": 1,
+    "category": "Easy",
+    "riddle": "Flat as a leaf. Round as a ring. Has two eyes, can't see a thing. What is it?",
+    "solution": "button"
+  },
+  {
+    "riddle_number": 2,
+    "category": "Easy",
+    "riddle": "What goes up when the rain comes down?",
+    "solution": "umbrella"
+  },
+  {
+    "riddle_number": 3,
+    "category": "Medium",
+    "riddle": "You pick it, You peel the outside, You cook the inside, You eat the outside, And throw away the inside. What am I?",
+    "solution": "corn"
+  },
+  {
+    "riddle_number": 4,
+    "category": "Medium",
+    "riddle": "There is a clerk at the butcher shop, he is five feet ten inches tall, and he wears size 13 sneakers. He has a wife and 2 kids. What does he weigh?",
+    "solution": "meat"
+  },
+  {
+    "riddle_number": 5,
+    "category": "Medium",
+    "riddle": "Forward I am heavy. Backwards I am not. What am I?",
+    "solution": "ton"
+  },
+  {
+    "riddle_number": 6,
+    "category": "Medium",
+    "riddle": "What word contains all of the twenty six letters?",
+    "solution": "alphabet"
+  },
+  {
+    "riddle_number": 7,
+    "category": "Hard",
+    "riddle": "What 8 letter has -kst in the middle, in the beginning and in the end?",
+    "solution": "inkstand"
+  },
+  {
+    "riddle_number": 8,
+    "category": "Hard",
+    "riddle": "I sizzle like bacon, I'm made with an egg. I have plenty of backbone, but not a good leg. I peel layers like an onion, but still remain whole. I can be long like a flagpole, yet I fit in a hole. What am I?",
+    "solution": "snake"
+  },
+  {
+    "riddle_number": 9,
+    "category": "Hard",
+    "riddle": "I have many teeth, If I break one I can't work properly, I have many siblings but none look like me What am I?",
+    "solution": "key"
+  },
+  {
+    "riddle_number": 10,
+    "category": "Hard",
+    "riddle": "What has a head and a tail but no body?",
+    "solution": "coin"
+  }
+]
