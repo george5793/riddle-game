@@ -1,8 +1,9 @@
 import os
 import json
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request, flash
 
 app = Flask(__name__)
+app.secret_key = 'worst_kept_secret'
 
 def write_to_file(filename, data):
     """ Handle the process of writing data to a file """
@@ -44,6 +45,7 @@ def riddles(player_name):
         else:
             # INCORRECT - name and score pushed to incorrect_answers.txt
             record_incorrect(player_name, player_answer)
+            flash("Sorry {0}, that's an incorrect answer. Try again...".format(player_name))
             
     return render_template("riddles_game.html", riddles = riddles, riddle_number = riddle_number)
         

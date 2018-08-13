@@ -8,7 +8,7 @@
 <body>
     <!--Display current riddle-->
     <div>
-        {{ riddles[riddle_number]["riddle"] }}
+        <p>{{ riddles[riddle_number]["riddle"] }}</p>
     </div>
     <!--Answer form-->
     <div>
@@ -17,6 +17,14 @@
             <input type="hidden" name="riddle_number" id = "riddle_number" value = {{riddle_number}} />
             <button>Submit</button>
         </form>
+        
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
     </div>
 </body>
 
