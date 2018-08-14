@@ -9,9 +9,6 @@ def write_to_file(filename, data):
     """ Handle the process of writing data to a file """
     with open(filename, "a") as file:
         file.writelines(data)
-        
-def record_incorrect(player_name, guess):
-    write_to_file("data/incorrect_answers.txt", "{0} - {1}\n".format(player_name, guess))
 
 @app.route('/', methods = ["GET", "POST"])
 def index():
@@ -24,7 +21,7 @@ def index():
 @app.route('/<player_name>', methods = ["GET", "POST"])
 def riddles(player_name):
     """ Game page """
-    riddles = []
+    
     # Load riddles.json file and store in list format
     with open("data/riddles.json") as json_riddles:
         riddles = json.load(json_riddles)
@@ -42,9 +39,13 @@ def riddles(player_name):
         if player_answer == riddles[riddle_number]["solution"]:
             # CORRECT - Move onto next riddle
             riddle_number +=1
+        elif player_answer == 'QUIT':
+             return render_template("high_scores.html")
+        elif riddle_number > 11:
+            return render_template("celebration.html")
         else:
-            # INCORRECT - name and score pushed to incorrect_answers.txt
-            record_incorrect(player_name, player_answer)
+            # INCORRECT - name and score pushed to incorrect_answers.json
+            write_to_file("data/incorrect_answers.txt", "[{0}, {1}, {2}]".format(riddle_number, player_name, player_answer)+ "\n")
             flash("Sorry {0}, that's an incorrect answer. Try again...".format(player_name))
             
     return render_template("riddles_game.html", riddles = riddles, riddle_number = riddle_number)

@@ -8,6 +8,10 @@
 <body>
     <!--Display current riddle-->
     <div>
+        <p>If at any time you want to give up, just type --> QUIT</p>
+    </div>
+    <!--Display current riddle-->
+    <div>
         <p>{{ riddles[riddle_number]["riddle"] }}</p>
     </div>
     <!--Answer form-->
@@ -26,6 +30,7 @@
         {% endif %}
         {% endwith %}
     </div>
+
 </body>
 
 </html>
