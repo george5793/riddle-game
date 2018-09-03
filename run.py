@@ -1,5 +1,6 @@
 import os
 import json
+import csv
 from flask import Flask, render_template, redirect, request, flash
 
 app = Flask(__name__)
@@ -9,6 +10,15 @@ def write_to_file(filename, data):
     """ Handle the process of writing data to a file """
     with open(filename, "a") as file:
         file.writelines(data)
+        
+def get_incorrect_answers():
+    """ Returns list of logged incorrect answers """
+    with open("data/incorrect_answers.csv", "r") as file:
+        csv_reader = csv.reader(file)
+        incorrect_answers = []
+        for line in csv_reader:
+            incorrect_answers.append(line)
+        return incorrect_answers
 
 @app.route('/', methods = ["GET", "POST"])
 def index():
@@ -44,11 +54,21 @@ def riddles(player_name):
         elif riddle_number > 11:
             return render_template("celebration.html")
         else:
-            # INCORRECT - name and score pushed to incorrect_answers.json
-            write_to_file("data/incorrect_answers.txt", "[{0}, {1}, {2}]".format(riddle_number, player_name, player_answer)+ "\n")
+            # INCORRECT - level, name and answer pushed to incorrect_answers.csv
             flash("Sorry {0}, that's an incorrect answer. Try again...".format(player_name))
+            with open("data/incorrect_answers.csv", "a") as csv_file:
+                csv_writer = csv.writer(csv_file)
+                csv_writer.writerow([(riddle_number + 1), player_name, player_answer])
+                
+    incorrect_answers = get_incorrect_answers()
+                
+    
             
-    return render_template("riddles_game.html", riddles = riddles, riddle_number = riddle_number)
+    return render_template("riddles_game.html", 
+                            riddles = riddles, 
+                            riddle_number = riddle_number,
+                            column_names = ['Level', 'Name', 'Answer'],
+                            incorrect_answers = incorrect_answers)
         
         
         

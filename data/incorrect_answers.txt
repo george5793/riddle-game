@@ -1,2 +1,0 @@
-[0, george, wrong]
-[0, george, another]

@@ -18,19 +18,34 @@
     <div>
         <form method="POST">
             <input type="text" placeholder="Type answer here..." name="guess" id="guess" autofocus/>
-            <input type="hidden" name="riddle_number" id = "riddle_number" value = {{riddle_number}} />
+            <input type="hidden" name="riddle_number" id="riddle_number" value= {{riddle_number}} />
             <button>Submit</button>
         </form>
-        
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-            <p>{{ message }}</p>
-            {% endfor %}
-        {% endif %}
+
+        {% with messages = get_flashed_messages() %} 
+            {% if messages %} 
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %} 
+            {% endif %} 
         {% endwith %}
     </div>
-
+    <div>
+        
+            <table>
+                <tr>
+                    <th>Level</th>
+                    <th>Name</th>
+                    <th>Answer</th>
+                </tr>
+        {% for list in incorrect_answers %}
+        <tr>
+            <td>{{ list[0] }}</td>
+            <td>{{ list[1] }}</td>
+            <td>{{ list[2] }}</td>
+        </tr>
+        {% endfor %}
+    </div>
 </body>
 
 </html>
