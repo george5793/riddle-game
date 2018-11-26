@@ -17,7 +17,7 @@
     <!--Answer form-->
     <div>
         <form method="POST">
-            <input type="text" placeholder="Type answer here..." name="guess" id="guess" autofocus/>
+            <input type="text" placeholder="Type answer here..." name="guess" id="guess" autocomplete="off" autofocus/>
             <input type="hidden" name="riddle_number" id="riddle_number" value= {{riddle_number}} />
             <button>Submit</button>
         </form>
@@ -31,7 +31,7 @@
         {% endwith %}
     </div>
     <div>
-        
+        <h3>Incorrect Answers</h3>
             <table>
                 <tr>
                     <th>Level</th>
