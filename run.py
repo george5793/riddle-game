@@ -50,8 +50,9 @@ def riddles(player_name):
         if player_answer.lower() == 'quit':
             return render_template("high_scores.html")
             
-        if player_answer.lower() == riddles[riddle_number]["solution"]:
+        elif player_answer.lower() == riddles[riddle_number]["solution"]:
             riddle_number +=1
+            
         else:
             flash("Sorry {0}, that's an incorrect answer. Try again...".format(player_name))
             with open("data/incorrect_answers.csv", "a") as csv_file:

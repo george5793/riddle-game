@@ -1,33 +1,60 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %} {% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="text-white">RULES</h3>
+    </div>
+</div>
 
-<head>
-    <title>The Riddle Game - Enter Name</title>
-</head>
-
-<body>
-    <div>
-        <div>
-            <h1>Welcome to the Riddle Game</h1>
+<div class="row">
+    <div class="card-deck text-white">
+        <div class="card text-center">
+            <div class="rule-title">
+                <h1>1</h1>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Each riddle has a one word answer</p>
+            </div>
         </div>
-        <div>
-            <h2>Rules of the game:</h2>
-            <ul>
-            <li>Each riddle has a one word answer</li>
-            <li>If you answer incorrectly, your answer will be stored below the riddle</li>
-            <li>There is no time limit to complete each riddle</li>
-            </ul>
+        <div class="card text-center">
+            <div class="rule-title">
+                <h1>2</h1>
+            </div>
+            <div class="card-body">
+                <p class="card-text">If you answer incorrectly, your answer will be stored below the riddle</p>
+            </div>
         </div>
-        <div>
-            <h2>To start the game, please enter your name:</h2>
-        </div>
-        <div>
-            <form method="POST">
-                <input type="text" placeholder="Type here..." name="player_name" id="player_name" autofocus/>
-                <button>Submit</button>
-            </form>
+        <div class="card text-center">
+            <div class="rule-title">
+                <h1>3</h1>
+            </div>
+            <div class="card-body">
+                <p class="card-text">There is no time limit to complete each riddle</p>
+            </div>
         </div>
     </div>
-</body>
+</div>
 
-</html>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card text-center">
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h3 class="card-title text-white">START THE GAME</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form method="POST">
+                                <input type="text" class="form-control" name="player_name" id="player_name" placeholder="YOUR NAME">
+                                <button type="submit" class="col-md-12 btn btn-outline-success btn-block">PLAY</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
