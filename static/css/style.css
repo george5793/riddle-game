@@ -4,4 +4,28 @@ body {
 
 .title {
     font-family: 'Roboto Mono', monospace;
+    color: #00ff33;
+    margin-bottom: 25px;
+}
+
+.btn-custom {
+    font-family: 'Roboto Mono', monospace;
+    color: #00ff33;
+}
+
+.name-entry, .name-entry:focus {
+    margin-bottom: 15px;
+    background-color: black;
+    outline: 0;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.riddle {
+    font-family: 'Roboto Mono', monospace;
+    color: #00ff33;
+}
+
+.progress-bar {
+    background-color: #00ff33;
+    color: black;
 }

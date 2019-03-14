@@ -1,51 +1,86 @@
-<!DOCTYPE html>
-<html>
+<!--<!DOCTYPE html>-->
+<!--<html>-->
 
-<head>
-    <title>The Riddle Game - Game</title>
-</head>
+<!--<head>-->
+<!--    <title>The Riddle Game - Game</title>-->
+<!--</head>-->
 
-<body>
-    <!--Display current riddle-->
-    <div>
-        <p>If at any time you want to give up, just type --> QUIT</p>
+<!--<body>-->
+<!--Display current riddle-->
+<!--    <div>-->
+<!--<p>If at any time you want to give up, just type QUIT</p>-->
+<!--    </div>-->
+<!--Display current riddle-->
+<!--    <div>-->
+<!--        <p>{{ riddles[riddle_number]["riddle"] }}</p>-->
+<!--    </div>-->
+<!--Answer form-->
+<!--    <div>-->
+<!--        <form method="POST">-->
+<!--            <input type="text" placeholder="Type answer here..." name="guess" id="guess" autocomplete="off" autofocus/>-->
+<!--            <input type="hidden" name="riddle_number" id="riddle_number" value= {{riddle_number}} />-->
+<!--            <button>Submit</button>-->
+<!--        </form>-->
+
+<!--        {% with messages = get_flashed_messages() %} -->
+<!--            {% if messages %} -->
+<!--                {% for message in messages %}-->
+<!--                    <p>{{ message }}</p>-->
+<!--                {% endfor %} -->
+<!--            {% endif %} -->
+<!--        {% endwith %}-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <h3>Incorrect Answers</h3>-->
+<!--            <table>-->
+<!--                <tr>-->
+<!--                    <th>Level</th>-->
+<!--                    <th>Name</th>-->
+<!--                    <th>Answer</th>-->
+<!--                </tr>-->
+<!--        {% for list in incorrect_answers %}-->
+<!--        <tr>-->
+<!--            <td>{{ list[0] }}</td>-->
+<!--            <td>{{ list[1] }}</td>-->
+<!--            <td>{{ list[2] }}</td>-->
+<!--        </tr>-->
+<!--        {% endfor %}-->
+<!--    </div>-->
+<!--</body>-->
+
+<!--</html>-->
+
+{% extends "base.html" %} {% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="title text-green text-center">
+            <h1>riddle_game</h1>
+        </div>
     </div>
-    <!--Display current riddle-->
-    <div>
-        <p>{{ riddles[riddle_number]["riddle"] }}</p>
+</div>
+<div class="row">
+    <div class="col-sm-10">
+        <div class="progress">
+            <div class="progress-bar w-{{ game_percentage }}" role="progressbar" aria-valuenow="{{ game_percentage }}" aria-valuemin="0" aria-valuemax="100">{{ game_percentage }}%</div>
+        </div>
     </div>
-    <!--Answer form-->
-    <div>
+</div>
+<div class="row">
+    <div class="col-sm-10">
+        <div class="riddle text-center">
+            {{ riddles[riddle_number]["riddle"] }}
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <svg-icon><src href="sprite.svg#si-glyph-circle-info" /></svg-icon>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-10">
         <form method="POST">
-            <input type="text" placeholder="Type answer here..." name="guess" id="guess" autocomplete="off" autofocus/>
-            <input type="hidden" name="riddle_number" id="riddle_number" value= {{riddle_number}} />
-            <button>Submit</button>
+            <input type="text" class="form-control name-entry" name="player_name" id="player_name" placeholder="enter your name...">
+            <button type="submit" class="col-md-12 btn btn-outline-success btn-block btn-custom">PLAY</button>
         </form>
-
-        {% with messages = get_flashed_messages() %} 
-            {% if messages %} 
-                {% for message in messages %}
-                    <p>{{ message }}</p>
-                {% endfor %} 
-            {% endif %} 
-        {% endwith %}
     </div>
-    <div>
-        <h3>Incorrect Answers</h3>
-            <table>
-                <tr>
-                    <th>Level</th>
-                    <th>Name</th>
-                    <th>Answer</th>
-                </tr>
-        {% for list in incorrect_answers %}
-        <tr>
-            <td>{{ list[0] }}</td>
-            <td>{{ list[1] }}</td>
-            <td>{{ list[2] }}</td>
-        </tr>
-        {% endfor %}
-    </div>
-</body>
-
-</html>
+</div>
+{% endblock %}
