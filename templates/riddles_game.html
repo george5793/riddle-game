@@ -52,35 +52,35 @@
 
 {% extends "base.html" %} {% block content %}
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-12">
         <div class="title text-green text-center">
             <h1>riddle_game</h1>
         </div>
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-10">
+    <div class="col-12">
         <div class="progress">
             <div class="progress-bar w-{{ game_percentage }}" role="progressbar" aria-valuenow="{{ game_percentage }}" aria-valuemin="0" aria-valuemax="100">{{ game_percentage }}%</div>
         </div>
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-10">
+    <div class="col-12">
         <div class="riddle text-center">
             {{ riddles[riddle_number]["riddle"] }}
         </div>
     </div>
-    <div class="col-sm-2">
-        <svg-icon><src href="sprite.svg#si-glyph-circle-info" /></svg-icon>
-    </div>
 </div>
 <div class="row">
-    <div class="col-sm-10">
+    <div class="col-12">
         <form method="POST">
-            <input type="text" class="form-control name-entry" name="player_name" id="player_name" placeholder="enter your name...">
+            <input type="text" placeholder="Type answer here..." name="guess" id="guess" autocomplete="off" autofocus/>
+            <input type="hidden" name="riddle_number" id="riddle_number" value= {{riddle_number}} />
             <button type="submit" class="col-md-12 btn btn-outline-success btn-block btn-custom">PLAY</button>
         </form>
     </div>
 </div>
+
+{{ game_percentage }}
 {% endblock %}
