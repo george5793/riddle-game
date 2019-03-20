@@ -1,11 +1,11 @@
 body {
     background-color: black;
+    padding-top: 65px;
 }
 
 .title {
     font-family: 'Roboto Mono', monospace;
     color: #00ff33;
-    margin-bottom: 25px;
 }
 
 .btn-custom {
@@ -13,20 +13,64 @@ body {
     color: #00ff33;
 }
 
-.name-entry, .name-entry:focus {
+.btn-outline-success {
+    border-color: #00ff33;
+}
+
+.btn-outline-success:not(:disabled):not(.disabled):active, .btn-outline-success:hover {
+    color: #343a40;
+    background-color: #00ff33;
+    border-color: #00ff33;
+}
+
+.form-control {
+    border: 1px solid #343a40;
+    color: #343a40;
     margin-bottom: 15px;
     background-color: black;
-    outline: 0;
     font-family: 'Roboto Mono', monospace;
+}
+
+.form-control:focus {
+    color: #00ff33;
+    background-color: black;
 }
 
 .riddle {
     font-family: 'Roboto Mono', monospace;
     color: #00ff33;
+    padding: 10px;
+    border-radius: 5px;
+    border-color: #00ff33;
+    border-width: 1px;
+}
+
+.progress {
+    background-color: black;
+    border-color: #00ff33;
 }
 
 .progress-bar {
     background-color: #00ff33;
-    color: black;
-    margin-bottom: 25px;
+    color: #343a40;
+}
+
+.modal-content {
+    background-color: black;
+}
+
+.modal-header {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: 1px solid #00ff33;
+}
+
+.modal-body {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.incorrect-answers {
+    font-family: 'Roboto Mono', monospace;
+    color: #00ff33;
 }

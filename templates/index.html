@@ -1,17 +1,11 @@
 {% extends "base.html" %} {% block content %}
+<br>
 <div class="row">
-    <div class="col-md-12">
-        <div class="title text-green text-center">
-            <h1>riddle_game</h1>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-10">
+    <div class="col-12">
         <form method="POST">
-            <input type="text" class="form-control name-entry" name="player_name" id="player_name" placeholder="enter your name...">
+            <input type="text" class="form-control text-center" name="player_name" id="player_name" placeholder="TYPE YOUR NAME HERE...">
             <button type="submit" class="col-md-12 btn btn-outline-success btn-block btn-custom">PLAY</button>
         </form>
     </div>
 </div>
-{% endblock %}
+<br> {% endblock %}

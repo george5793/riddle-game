@@ -22,6 +22,10 @@ def get_incorrect_answers():
             incorrect_answers.append(line)
         return incorrect_answers
         
+def calculate_game_percentage(riddle_number):
+    game_percentage = ((riddle_number)*100)//11
+    return game_percentage
+        
 ################################################################################
 
 @app.route('/', methods = ["GET", "POST"])
@@ -54,7 +58,7 @@ def riddles(player_name):
             riddle_number +=1
             
         else:
-            flash("Sorry {0}, that's an incorrect answer. Try again...".format(player_name))
+            flash("INCORRECT ANSWER".format(player_name))
             with open("data/incorrect_answers.csv", "a") as csv_file:
                 csv_writer = csv.writer(csv_file)
                 csv_writer.writerow([(riddle_number + 1), player_name, player_answer])
@@ -63,12 +67,15 @@ def riddles(player_name):
             return render_template("celebration.html")
             
     incorrect_answers = get_incorrect_answers()
+    
+    game_percentage = calculate_game_percentage(riddle_number)
                 
     return render_template("riddles_game.html", 
                             riddles = riddles, 
                             riddle_number = riddle_number,
                             column_names = ['Level', 'Name', 'Answer'],
-                            incorrect_answers = incorrect_answers)
+                            incorrect_answers = incorrect_answers,
+                            game_percentage = game_percentage)
         
         
         
