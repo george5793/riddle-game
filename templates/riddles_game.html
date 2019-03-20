@@ -1,49 +1,3 @@
-<!--<!DOCTYPE html>-->
-<!--<html>-->
-
-<!--<head>-->
-<!--    <title>The Riddle Game - Game</title>-->
-<!--</head>-->
-
-<!--<body>-->
-<!--Display current riddle-->
-<!--    <div>-->
-<!--<p>If at any time you want to give up, just type QUIT</p>-->
-<!--    </div>-->
-<!--Display current riddle-->
-<!--    <div>-->
-<!--        <p>{{ riddles[riddle_number]["riddle"] }}</p>-->
-<!--    </div>-->
-<!--Answer form-->
-<!--    <div>-->
-<!--        <form method="POST">-->
-<!--            <input type="text" placeholder="Type answer here..." name="guess" id="guess" autocomplete="off" autofocus/>-->
-<!--            <input type="hidden" name="riddle_number" id="riddle_number" value= {{riddle_number}} />-->
-<!--            <button>Submit</button>-->
-<!--        </form>-->
-
-
-<!--    </div>-->
-<!--    <div>-->
-<!--        <h3>Incorrect Answers</h3>-->
-<!--            <table>-->
-<!--                <tr>-->
-<!--                    <th>Level</th>-->
-<!--                    <th>Name</th>-->
-<!--                    <th>Answer</th>-->
-<!--                </tr>-->
-<!--        {% for list in incorrect_answers %}-->
-<!--        <tr>-->
-<!--            <td>{{ list[0] }}</td>-->
-<!--            <td>{{ list[1] }}</td>-->
-<!--            <td>{{ list[2] }}</td>-->
-<!--        </tr>-->
-<!--        {% endfor %}-->
-<!--    </div>-->
-<!--</body>-->
-
-<!--</html>-->
-
 {% extends "base.html" %} {% block content %}
 <div class="row">
     <div class="col-12">
@@ -73,7 +27,31 @@
 <br>
 <div class="row">
     {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
-    <div class="col-12 incorrect-answers text-center">{{ message }}</div>
+    <div class="col-12 incorrect-answer text-center">{{ message }}</div>
     {% endfor %} {% endif %} {% endwith %}
+</div>
+<br>
+<div class="row">
+    <div class="col-12">
+        <table class="table table-dark title text-center">
+            <caption>PREVIOUS INCORRECT ANSWERS</caption>
+            <thead>
+                <tr>
+                    <th scope="col">PLAYER NAME</th>
+                    <th scope="col">WRONG ANSWER</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for list in incorrect_answers %}
+                {% if list[0] == string_riddle_number %}
+                <tr>
+                    <td>{{ list[1] }}</td>
+                    <td>{{ list[2] }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}

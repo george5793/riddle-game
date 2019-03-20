@@ -69,13 +69,14 @@ def riddles(player_name):
     incorrect_answers = get_incorrect_answers()
     
     game_percentage = calculate_game_percentage(riddle_number)
+    string_riddle_number = str(riddle_number + 1)
                 
     return render_template("riddles_game.html", 
                             riddles = riddles, 
                             riddle_number = riddle_number,
-                            column_names = ['Level', 'Name', 'Answer'],
                             incorrect_answers = incorrect_answers,
-                            game_percentage = game_percentage)
+                            game_percentage = game_percentage,
+                            string_riddle_number = string_riddle_number)
         
         
         

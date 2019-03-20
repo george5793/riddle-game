@@ -17,10 +17,18 @@ body {
     border-color: #00ff33;
 }
 
-.btn-outline-success:not(:disabled):not(.disabled):active, .btn-outline-success:hover {
+.btn-outline-success:not(:disabled):not(.disabled):active,
+.btn-outline-success:hover {
     color: #343a40;
     background-color: #00ff33;
     border-color: #00ff33;
+}
+
+.btn-rules {
+    background-color: #343a40;
+    color: #00ff33;
+    border-color: #343a40;
+    border: none;
 }
 
 .form-control {
@@ -70,7 +78,20 @@ body {
     border-bottom-right-radius: 5px;
 }
 
-.incorrect-answers {
+.incorrect-answer {
     font-family: 'Roboto Mono', monospace;
     color: #00ff33;
+    animation: blink 1s linear 3;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 1;
+    }
 }
