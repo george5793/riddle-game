@@ -13,14 +13,13 @@ def write_to_file(filename, data):
     with open(filename, "a") as file:
         file.writelines(data)
         
-def get_incorrect_answers():
-    """ Returns list of logged incorrect answers """
-    with open("data/incorrect_answers.csv", "r") as file:
+def get_csv_data(filepath):
+    with open(filepath, "r") as file:
         csv_reader = csv.reader(file)
-        incorrect_answers = []
+        csv_data = []
         for line in csv_reader:
-            incorrect_answers.append(line)
-        return incorrect_answers
+            csv_data.append(line)
+        return csv_data
         
 def calculate_game_percentage(riddle_number):
     game_percentage = ((riddle_number)*100)//11
@@ -52,13 +51,20 @@ def riddles(player_name):
         player_answer = request.form["guess"]
         
         if player_answer.lower() == 'quit':
-            return render_template("high_scores.html")
+            with open("data/high_scores.csv", "a") as csv_file:
+                csv_writer = csv.writer(csv_file)
+                csv_writer.writerow([(riddle_number + 1), player_name])
+                
+            high_scores = get_csv_data("data/high_scores.csv")
+            
+            return render_template("high_scores.html",
+                                    high_scores = high_scores)
             
         elif player_answer.lower() == riddles[riddle_number]["solution"]:
             riddle_number +=1
             
         else:
-            flash("INCORRECT ANSWER".format(player_name))
+            flash("INCORRECT ANSWER")
             with open("data/incorrect_answers.csv", "a") as csv_file:
                 csv_writer = csv.writer(csv_file)
                 csv_writer.writerow([(riddle_number + 1), player_name, player_answer])
@@ -66,7 +72,7 @@ def riddles(player_name):
         if riddle_number > 10:
             return render_template("celebration.html")
             
-    incorrect_answers = get_incorrect_answers()
+    incorrect_answers = get_csv_data("data/incorrect_answers.csv")
     
     game_percentage = calculate_game_percentage(riddle_number)
     string_riddle_number = str(riddle_number + 1)

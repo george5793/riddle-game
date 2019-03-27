@@ -28,7 +28,12 @@ body {
     background-color: #343a40;
     color: #00ff33;
     border-color: #343a40;
-    border: none;
+}
+
+#btn-ia {
+    background-color: black;
+    color: #00ff33;
+    padding: 10px;
 }
 
 .form-control {
@@ -79,6 +84,19 @@ body {
 }
 
 .incorrect-answer {
+    font-family: 'Roboto Mono', monospace;
+    color: red;
+    animation: blink 1s linear 3;
+}
+
+.reveal {
+    font-family: 'Roboto Mono', monospace;
+    color: #00ff33;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.exit-message {
     font-family: 'Roboto Mono', monospace;
     color: #00ff33;
     animation: blink 1s linear 3;

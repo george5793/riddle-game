@@ -32,9 +32,17 @@
 </div>
 <br>
 <div class="row">
-    <div class="col-12">
+        <div class="reveal col-9 text-center accordion">
+            REVEAL PREVIOUS INCORRECT ANSWERS
+        </div>
+        <div class="col-3">
+            <button id ="btn-ia" class="btn" data-toggle="collapse" data-target="#incorrect-answers-table">
+                     <i class="fas fa-toggle-off fa-lg"></i>
+                </button>
+        </div>
+    </div>
+    <div id="incorrect-answers-table" class="collapse collapsed" data-parent="#accordion">
         <table class="table table-dark title text-center">
-            <caption>PREVIOUS INCORRECT ANSWERS</caption>
             <thead>
                 <tr>
                     <th scope="col">PLAYER NAME</th>
@@ -42,16 +50,14 @@
                 </tr>
             </thead>
             <tbody>
-                {% for list in incorrect_answers %}
-                {% if list[0] == string_riddle_number %}
+                {% for list in incorrect_answers %} {% if list[0] == string_riddle_number %}
                 <tr>
                     <td>{{ list[1] }}</td>
                     <td>{{ list[2] }}</td>
                 </tr>
-                {% endif %}
-                {% endfor %}
+                {% endif %} {% endfor %}
             </tbody>
         </table>
     </div>
 </div>
-{% endblock %}
+<br> {% endblock %}

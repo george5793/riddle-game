@@ -1,10 +1,28 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>High Scores</title>
-    </head>
-    <body>
-        <p>Your game is over, see the high scores below!</p>
-        <p>High Scores Table</p>
-    </body>
-</html>
+{% extends "base.html" %} {% block content %}
+<div class="row">
+    <div class="col-12 exit-message text-center">
+        BETTER LUCK NEXT TIME!
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-12">
+        <table class="table table-dark title text-center">
+            <thead>
+                <tr>
+                    <th scope="col">PLAYER NAME</th>
+                    <th scope="col">HIGH SCORE</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for list in high_scores %}
+                <tr>
+                    <td>{{ list[1] }}</td>
+                    <td>{{ list[0] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
