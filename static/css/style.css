@@ -8,6 +8,12 @@ body {
     color: #00ff33;
 }
 
+.celebration {
+    font-family: 'Roboto Mono', monospace;
+    color: #00ff33;
+    animation: blink 1s linear 50;
+}
+
 .btn-custom {
     font-family: 'Roboto Mono', monospace;
     color: #00ff33;

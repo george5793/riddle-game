@@ -60,7 +60,7 @@ def riddles(player_name):
             return render_template("high_scores.html",
                                     high_scores = high_scores)
             
-        elif player_answer.lower() == riddles[riddle_number]["solution"]:
+        elif player_answer.lower().strip() == riddles[riddle_number]["solution"]:
             riddle_number +=1
             
         else:
