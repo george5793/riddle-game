@@ -70,6 +70,9 @@ def riddles(player_name):
                 csv_writer.writerow([(riddle_number + 1), player_name, player_answer])
                 
         if riddle_number > 10:
+            with open("data/high_scores.csv", "a") as csv_file:
+                csv_writer = csv.writer(csv_file)
+                csv_writer.writerow([(riddle_number + 1), player_name])
             return render_template("celebration.html")
             
     incorrect_answers = get_csv_data("data/incorrect_answers.csv")
