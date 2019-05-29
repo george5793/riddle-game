@@ -82,7 +82,7 @@ class test_riddles_app(unittest.TestCase):
         self.assertIn(b"BETTER LUCK NEXT TIME!", response.data)
         
     # Confirm that typing quit logs score to csv
-    def test_quit_redirect(self):
+    def test_quit_log(self):
         self.app.post('/Penelope', data=dict(riddle_number=5, guess='quit'))
         high_score = []
         with open('data/high_scores.csv', 'r') as f:
@@ -96,7 +96,7 @@ class test_riddles_app(unittest.TestCase):
         self.assertIn(b">18%</div>", response.data)
         
     # Confirm that completing the game takes you to the celebration page
-    def test_quit_redirect(self):
+    def test_complete_game(self):
         response = self.app.post('/Courtney', data=dict(riddle_number=10, guess='coin'))
         self.assertIn(b"YOU HAVE COMPLETED THE RIDDLE GAME", response.data)
         
