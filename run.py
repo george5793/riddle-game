@@ -4,12 +4,12 @@ import csv
 from flask import Flask, render_template, redirect, request, flash
 
 app = Flask(__name__)
-app.secret_key = 'worst_kept_secret'
+app.secret_key = os.environ.get('SECRET_KEY')
 
 ################################################################################
+""" Required Functions """
 
 def write_to_file(filename, data):
-    """ Handle the process of writing data to a file """
     with open(filename, "a") as file:
         file.writelines(data)
         
