@@ -4,7 +4,7 @@ import csv
 from flask import Flask, render_template, redirect, request, flash
 
 app = Flask(__name__)
-app.secret_key = os.environ.get('SECRET_KEY')
+app.secret_key = 'worst_kept_secret'
 
 ################################################################################
 """ Required Functions """
