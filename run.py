@@ -4,7 +4,7 @@ import csv
 from flask import Flask, render_template, redirect, request, flash
 
 app = Flask(__name__)
-app.secret_key = 'worst_kept_secret'
+app.secret_key = os.environ.get('SECRET_KEY')
 
 ################################################################################
 """ Required Functions """
@@ -86,4 +86,4 @@ def riddles(player_name):
         
         
         
-app.run(host = os.getenv('IP', '0.0.0.0'), port = int(os.getenv('PORT', 8080)), debug = True)
+app.run(host = os.getenv('IP', '0.0.0.0'), port = int(os.getenv('PORT', 8080)))
