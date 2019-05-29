@@ -1,21 +1,19 @@
 {% extends "base.html" %} {% block content %}
-<div class="row">
+<div class="row spacing-15">
     <div class="col-12">
         <div class="progress">
             <div class="progress-bar" style="width:{{ game_percentage }}%" role="progressbar" aria-valuenow="{{ game_percentage }}" aria-valuemin="0" aria-valuemax="100">{{ game_percentage }}%</div>
         </div>
     </div>
 </div>
-<br>
-<div class="row">
+<div class="row spacing-15">
     <div class="col-12">
         <div class="riddle text-center bg-dark">
             {{ riddles[riddle_number]["riddle"] }}
         </div>
     </div>
 </div>
-<br>
-<div class="row">
+<div class="row spacing-15">
     <div class="col-12">
         <form method="POST">
             <input class="form-control text-center" type="text" placeholder="TYPE ANSWER HERE..." name="guess" autocomplete="off" autofocus/>
@@ -24,13 +22,11 @@
         </form>
     </div>
 </div>
-<br>
-<div class="row">
+<div class="row spacing-30">
     {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
     <div class="col-12 incorrect-answer text-center">{{ message }}</div>
     {% endfor %} {% endif %} {% endwith %}
 </div>
-<br>
 <div class="row">
         <div class="reveal col-9 text-center accordion">
             REVEAL PREVIOUS INCORRECT ANSWERS
@@ -60,4 +56,4 @@
         </table>
     </div>
 </div>
-<br> {% endblock %}
+{% endblock %}

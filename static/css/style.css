@@ -1,11 +1,27 @@
 body {
     background-color: black;
-    padding-top: 65px;
+    padding-top: 100px;
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 .title {
     font-family: 'Roboto Mono', monospace;
     color: #00ff33;
+}
+
+.title:hover {
+    text-decoration: none;
+}
+
+.spacing-15 {
+    margin-bottom: 15px;
+}
+
+.spacing-30 {
+    margin-bottom: 30px;
 }
 
 .celebration {

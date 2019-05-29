@@ -13,49 +13,51 @@
 </head>
 
 <body>
+    <header>
+        <nav class="navbar navbar-expand-sm bg-dark justify-content-center fixed-top">
+            <a href="{{ url_for('index') }}">
+                <h1 class="title text-green">riddle_</h1>
+            </a>
+        </nav>
+    </header>
     <div class="container">
-        <div class="row">
-            <nav class="navbar navbar-expand-sm bg-dark justify-content-center fixed-top">
-                <a href="{{ url_for('index') }}">
-                    <h1 class="title text-green">riddle_</h1>
-                </a>
-            </nav>
-        </div>
-        <br> {% block content %} {% endblock %}
-        <div class="row">
-            <div class="col-12">
-                <nav class="navbar navbar-expand-sm bg-dark justify-content-center fixed-bottom title">
-                    <button type="button" class="btn-rules" data-toggle="modal" data-target="#rules-modal">
-                        <h3><i class="fas fa-info-circle"></i></h3>
-                    </button>
-                </nav>
+        {% block content %} {% endblock %}
+        <footer>
+            <div class="row">
+                <div class="col-12">
+                    <div class="navbar navbar-expand-sm bg-dark justify-content-center fixed-bottom title">
+                        <button type="button" class="btn-rules" data-toggle="modal" data-target="#rules-modal">
+                            <h3><i class="fas fa-info-circle"></i></h3>
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="modal fade" id="rules-modal" tabindex="-1" role="dialog" aria-labelledby="rules-list" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header bg-dark">
-                            <h3 class="modal-title title" id="exampleModalLabel">RULES</h3>
-                            <button type="button" class="close btn-custom" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-                        </div>
-                        <div class="modal-body bg-dark title">
-                            <ul>
-                                <li>All riddles have a one word answer</li>
-                                <br>
-                                <li>There is no time limit</li>
-                                <br>
-                                <li>You have unlimited attempts at each riddle</li>
-                                <br>
-                                <li>If at any time you want to give up, just type QUIT in the answer box</li>
-                            </ul>
+            <div class="row">
+                <div class="modal fade" id="rules-modal" tabindex="-1" role="dialog" aria-labelledby="rules-list" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header bg-dark">
+                                <h3 class="modal-title title" id="exampleModalLabel">RULES</h3>
+                                <button type="button" class="close btn-custom" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                            </div>
+                            <div class="modal-body bg-dark title">
+                                <ul>
+                                    <li>All riddles have a one word answer</li>
+                                    <br>
+                                    <li>There is no time limit</li>
+                                    <br>
+                                    <li>You have unlimited attempts at each riddle</li>
+                                    <br>
+                                    <li>If at any time you want to give up, just type QUIT in the answer box</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </footer>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
