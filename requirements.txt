@@ -4,7 +4,7 @@ colorama==0.2.5
 Flask==1.0.2
 html5lib==0.999
 itsdangerous==0.24
-Jinja2==2.10
+Jinja2==2.11.2
 MarkupSafe==1.0
 requests==2.20.0
 Werkzeug==0.15.3
